@@ -1,0 +1,90 @@
+/* components.css — buttons, cards, generic widgets */
+
+.btn-pri {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--acc), var(--adark));
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: .02em;
+}
+.btn-pri:disabled { opacity: .5; cursor: not-allowed; }
+.btn-pri:active   { opacity: .85; }
+
+.btn-sec {
+  padding: 12px 16px;
+  border: 2px solid var(--bdr);
+  border-radius: 12px;
+  background: var(--surf);
+  color: var(--txt);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-sec:active { opacity: .8; }
+
+.btn-acc {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--acc), var(--adark));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.act-bar {
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--bdr);
+  background: var(--surf);
+  flex-shrink: 0;
+}
+.act-bar .btn-sec { flex: 1; }
+.act-bar .btn-acc { flex: 2; }
+
+.card {
+  background: var(--surf);
+  border: 2px solid var(--bdr);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.kv-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--mut);
+}
+.kv-row strong { color: var(--txt); font-weight: 600; }
+
+/* Microphone permission overlay */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.65);
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+.overlay.vis { display: flex; }
+.ov-card {
+  background: var(--surf);
+  border: 1px solid var(--bdr);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 360px;
+  text-align: center;
+}
+.ov-icon { font-size: 36px; }
+.ov-title { font-size: 18px; font-weight: 700; margin: 8px 0 6px; }
+.ov-txt   { font-size: 14px; color: var(--mut); margin-bottom: 16px; line-height: 1.5; }

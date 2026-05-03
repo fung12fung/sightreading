@@ -1,0 +1,82 @@
+/* staff.css — staff card, score wrap, eye-hand-span overlay, timeline canvas */
+
+.staff-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 4px 6px;
+  box-shadow: 0 6px 32px rgba(0,0,0,.4);
+  overflow: hidden;
+}
+.staff-card svg {
+  display: block;
+  width: 100% !important;
+  height: auto;
+}
+
+/* Continuous-mode scrolling-score wrap */
+.score-wrap {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  margin: 0 12px;
+  height: 180px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,.4);
+}
+.score-wrap.hidden { display: none; }
+
+#cont-score {
+  position: absolute;
+  left: 0; top: 0;
+  height: 100%;
+  /* width set by JS via VexFlow render */
+  transition: none;
+  will-change: transform;
+}
+
+/* Eye-hand-span gradient overlay (translucent rectangle on top of score) */
+.span-overlay {
+  position: absolute;
+  top: 8px; bottom: 8px;
+  background: linear-gradient(to right,
+    rgba(99, 102, 241, 0.28),
+    rgba(99, 102, 241, 0.04));
+  border-left: 2px solid rgba(99, 102, 241, 0.55);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Vertical play-line — fixed position; the score scrolls past */
+.play-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 3px;
+  background: rgba(220, 38, 38, 0.85);
+  box-shadow: 0 0 8px rgba(220, 38, 38, 0.6);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Hit/miss flash above the staff */
+.cont-flash {
+  position: absolute;
+  top: 8px; right: 16px;
+  font-size: 28px;
+  font-weight: 800;
+  opacity: 0;
+  z-index: 4;
+}
+.cont-flash.pop { animation: cont-pop .45s ease-out forwards; }
+@keyframes cont-pop {
+  0%   { opacity: 1; transform: scale(1.25); }
+  50%  { opacity: 1; transform: scale(1.0); }
+  100% { opacity: 0; transform: scale(0.9); }
+}
+
+/* Timeline graph canvas (session-end summary) */
+.timeline-canvas {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  background: rgba(0,0,0,.22);
+}
